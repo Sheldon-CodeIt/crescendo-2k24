@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="zxx">
 
 <head>
@@ -14,14 +15,14 @@
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="css/barfiller.css" type="text/css">
-    <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
 </head>
 
 <body>
@@ -41,11 +42,11 @@
         </div>
         <nav class="canvas-menu mobile-menu">
             <ul>
-                <li><a href="./index.html">Home</a></li>
-                <li><a href="./about-us.html">About Us</a></li>
-                <li><a href="./container.html">Search Product</a></li></li>
-                <li><a href="./contact.html">Login</a></li>
-                <li><a href="./uploaddoc.html">Report</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'products' %}">Search Product</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'report' %}">Report</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -64,19 +65,19 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <a href="./index.html">
-                            <img src="./logo.png" alt="" height="200">
+                        <a href="{% url 'home' %}">
+                            <img src="{% static 'images/logo.png' %}" alt="" height="200">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
-                            <li><a href="./about-us.html">About Us</a></li>
-                            <li><a href="./container.html">Search Product</a></li></li>
-                            <li><a href="./contact.html">Login</a></li>
-                            <li><a href="./uploaddoc.html">Report</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'products' %}">Search Product</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'report' %}">Report</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -102,14 +103,14 @@
     <!-- Header End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="./product.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'images/product.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb-text">
                         <h2>Analyse</h2>
                         <div class="bt-option">
-                            <a href="./index.html">Home</a>
+                            <a href="{% url 'home' %}">Home</a>
                             <span>Search Prodct</span>
                         </div>
                     </div>
@@ -138,59 +139,52 @@
         </div>
         <div class="row" >
             <div class="col-lg-4 col-sm-12"  >
-                <div class="ts-item set-bg" style="border-radius:15px;" data-setbg="./lays.jpg">
+                <div class="ts-item set-bg" style="border-radius:15px;" data-setbg="{% static 'images/lays.jpg' %}">
                     <div class="ts_text" style="opacity: 0.8;" >
                         <h4 style="color:orangered">Lays Classic'Salted</h4>
                         
                         <div class="tt_social">
-                            
-                            <a href="./analytics/Lays.html">Show Analytics >>></a>
-                            
+                            <a href="{% url 'productDetails' product='lays' %}">Show Analytics >></a>
                         </div>
+                        
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12" >
-                <div class="ts-item set-bg" data-setbg="./pepsi.jpg" style="border-radius:15px;">
+                <div class="ts-item set-bg" data-setbg="{% static 'images/pepsi.jpg' %}" style="border-radius:15px;">
                     <div class="ts_text" style="opacity: 0.8;">
                         <h4 style="color:orangered">Pepsi</h4>
                         
                         <div class="tt_social">
-                            
-                            <a href="./analytics/pepsi.html">Show Analytics >>></a>
-                            
+                            <a href="{% url 'productDetails' product='pepsi' %}">Show Analytics >></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12" >
-                <div class="ts-item set-bg" data-setbg="./sprite.jpg" style="border-radius:15px;">
+                <div class="ts-item set-bg" data-setbg="{% static 'images/sprite.jpg' %}" style="border-radius:15px;">
                     <div class="ts_text" style="opacity: 0.8;">
                         <h4 style="color:orangered">Sprite</h4>
                         
                         <div class="tt_social">
-                            
-                            <a href="./analytics/sprite.html">Show Analytics >>></a>
-                            
+                            <a href="{% url 'productDetails' product='sprite' %}">Show Analytics >></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12" >
-                <div class="ts-item set-bg" data-setbg="./maggie.jpg" style="border-radius:15px;">
+                <div class="ts-item set-bg" data-setbg="{% static 'images/maggie.jpg' %}" style="border-radius:15px;">
                     <div class="ts_text" style="opacity: 0.8;">
                         <h4 style="color:orangered">Maggie Masala</h4>
                         
                         <div class="tt_social">
-                            
-                            <a href="#">Show Analytics >>></a>
-                            
+                            <a href="{% url 'productDetails' product='maggie' %}">Show Analytics >></a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12" >
-                <div class="ts-item set-bg" data-setbg="./jam.jpg" style="border-radius:15px;">
+                <div class="ts-item set-bg" data-setbg="{% static 'images/jam.jpg' %}" style="border-radius:15px;">
                     <div class="ts_text" style="opacity: 0.8;">
                         <h4 style="color:orangered">Kissan Jam</h4>
                         
@@ -203,7 +197,7 @@
                 </div>
             </div>
             <div class="col-lg-4 col-sm-12" >
-                <div class="ts-item set-bg" data-setbg="./oats.jpg" style="border-radius:15px;">
+                <div class="ts-item set-bg" data-setbg="{% static 'images/oats.jpg' %}" style="border-radius:15px;">
                     <div class="ts_text" style="opacity: 0.8;">
                         <h4 style="color:orangered">Quaker Oats</h4>
                         
@@ -323,14 +317,16 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/masonry.pkgd.min.js"></script>
-    <script src="js/jquery.barfiller.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'js/main.js' %}"></script> 
+
 
 
 </body>

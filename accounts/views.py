@@ -5,29 +5,47 @@ from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from django.urls import reverse_lazy
 from django.contrib import auth
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate
 
 
-class CustomLoginView(LoginView):
-    template_name = 'accounts/login.html'
-    fields = '__all__'
-    redirect_authenticated_user = True
+# class CustomLoginView(LoginView):
+#     template_name = 'accounts/login.html'
+#     fields = '__all__'
+#     redirect_authenticated_user = True
 
-    def get_success_url(self):
-        if 'next' in self.request.POST:
-            # If 'next' parameter exists in POST data, redirect to it
-            return self.request.POST.get('next')
-        else:
-            # If 'next' parameter doesn't exist, redirect to the product details page
-            # You need to modify this logic based on how your URLs are structured
-            # For demonstration purposes, I'm assuming there's a 'product' URL pattern
-            return reverse_lazy('product', kwargs={'pk': self.request.user.id})
+#     def get_success_url(self):
+#         if 'next' in self.request.POST:
+#             # If 'next' parameter exists in POST data, redirect to it
+#             return self.request.POST.get('next')
+#         else:
+#             # If 'next' parameter doesn't exist, redirect to the product details page
+#             # You need to modify this logic based on how your URLs are structured
+#             # For demonstration purposes, I'm assuming there's a 'product' URL pattern
+#             return reverse_lazy('product', kwargs={'pk': self.request.user.id})
 
     
+
+def loginView(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('home')
+    return render(request, 'foodsafety/login.html')
+
+    
+def registerView(request):
+    return render(request, 'foodsafety/register.html')
+    
+
+
 class RegisterPage(FormView):
     template_name = 'accounts/register.html'
     form_class = UserCreationForm
@@ -50,6 +68,7 @@ class RegisterPage(FormView):
 class CustomLogoutView(LogoutView):
     def get_success_url(self):
         return reverse_lazy('login')
+
     
 
 def logout(request):

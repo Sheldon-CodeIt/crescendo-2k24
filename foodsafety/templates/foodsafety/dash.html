@@ -1,5 +1,5 @@
-
 <!DOCTYPE html>
+{% load static %}
 <html lang="zxx">
 
 <head>
@@ -9,22 +9,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>home</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/flaticon.css" type="text/css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/barfiller.css" type="text/css">
-    <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
-    <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
-    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/barfiller.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            align-items: center;
+            background: #ffffff;
+            
+          }
+          
+    </style>
 </head>
 
 <body>
@@ -33,7 +40,7 @@
         <div class="loader"></div>
     </div>
 
-    <!-- Offcanvas Menu Section Begin -->
+ <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
         <div class="canvas-close">
@@ -44,11 +51,11 @@
         </div>
         <nav class="canvas-menu mobile-menu">
             <ul>
-                <li><a href="../index.html">Home</a></li>
-                <li><a href="../about-us.html">About Us</a></li>
-                <li><a href="../container.html">Search Product</a></li></li>
-                <li><a href="../contact.html">Login</a></li>
-                <li><a href="../uploaddoc.html">Report</a></li>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'products' %}">Search Product</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'report' %}">Report</a></li>
             </ul>
         </nav>
         <div id="mobile-menu-wrap"></div>
@@ -68,18 +75,18 @@
                 <div class="col-lg-3">
                     <div class="logo">
                         <a href="../index.html">
-                            <img src="../logo.png" alt="" height="200">
+                            <img src="{% static 'images/logo.png' %}" alt="" height="200">
                         </a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <nav class="nav-menu">
                         <ul>
-                            <li><a href="../index.html">Home</a></li>
-                            <li><a href="../about-us.html">About Us</a></li>
-                            <li><a href="../container.html">Search Product</a></li></li>
-                            <li><a href="../contact.html">Login</a></li>
-                            <li><a href="../uploaddoc.html">Report</a></li>
+                            <li><a href="{% url 'home' %}">Home</a></li>
+                            <li><a href="{% url 'about' %}">About Us</a></li>
+                            <li><a href="{% url 'products' %}">Search Product</a></li>
+                            <li><a href="{% url 'login' %}">Login</a></li>
+                            <li><a href="{% url 'report' %}">Report</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -105,16 +112,15 @@
     <!-- Header End -->
 
     <!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-section set-bg" data-setbg="../login.jpg">
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'images/report.jpg' %}">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <div class="breadcrumb-text">
-                        <h2>Sprite</h2>
+                        <h2>Upload Your Document</h2>
                         <div class="bt-option">
                             <a href="../index.html">Home</a>
-                            
-                            <span>SearchProduct</span>
+                            <span>Report</span>
                         </div>
                     </div>
                 </div>
@@ -122,62 +128,27 @@
         </div>
     </section>
     <!-- Breadcrumb Section End -->
+<div style="margin-left: 15%;">
 
-    <!-- Contact Section Begin -->
-    <section class="contact-section spad">
-        <div class="container">
-            <div class="row">
-                < class="col-lg-6">
-                    <!-- CODE HERE -->
+    <h2 style="margin-left: 10%;">Comparative Analysis of <span style="color:orangered">Uploaded Report</span> and <span style="color:orangered">FDA Standard</span> Report</span>:</h2>
+    <br>
+    <br>
+    <br>
+    
 
-                   
-                      <!-- Content 1 -->
-                      <div id="content">
-                        <div class="donut-chart-container">
-                          <canvas id="donutChart"></canvas>
-                        </div>
-                      </div>
-                <div class="col-lg-6">
-                    <div class="section-title contact-title">
-                        <span>Sprite</span>
-                        <h2>Admin dashboard</h2>
-                    </div>
-                    <div class="contact-widget">
-                        <div class="cw-text">
-                            <i class="fa fa-indent"></i>
-                            <p>INGREDIENTS<br/> Carbonated Water, High Fructose Corn Syrup, Citric Acid, Natural Flavors, Sodium Citrate, Sodium Benzoate</p>
-                        </div>
-                    <div class="contact-widget">
-                        <div class="cw-text">
-                            <i class="fa fa-indent"></i>
-                            <p>ADDITIVES<br/> Sodium Benzoate </p>
-                        </div>
-                    <div class="contact-widget">
-                        <div class="cw-text">
-                            <i class="fa fa-indent"></i>
-                            <p>FOOD COLOURING<br/> None</p>
-                        </div>
-                    <div class="contact-widget">
-                        <div class="cw-text">
-                            <i class="fa fa-indent"></i>
-                            <p>RECOMMENDED CONSUMPTION<br/> 100 - 200 servings (in ml) per day</p>
-                        </div>
-                    <div class="contact-widget">
-                        <div class="cw-text">
-                            <i class="fa fa-indent"></i>
-                            <p>MIN-AGE FOR CONSUMPTION<br/> 10 years</p>
-                        </div>
-                        
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-    </section>
-    <!-- Contact Section End -->
+    <div  style="width: 80%;">
+      <canvas id="lineChart"></canvas>
+    </div>
+  
+    <div style="width: 80%;">
+      <canvas id="barChart"></canvas>
+    </div>
 
-   
-
+    <br>
+    <br>
+  
+    
+</div>
 
     <!-- Footer Section Begin -->
     <section class="footer-section">
@@ -258,7 +229,6 @@
     </section>
     <!-- Footer Section End -->
 
-
     <!-- Search model Begin -->
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
@@ -271,44 +241,118 @@
     <!-- Search model end -->
 
     <!-- Js Plugins -->
-    <script src="../js/jquery-3.3.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/jquery.magnific-popup.min.js"></script>
-    <script src="../js/masonry.pkgd.min.js"></script>
-    <script src="../js/jquery.barfiller.js"></script>
-    <script src="../js/jquery.slicknav.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/main.js"></script>
-
-
+    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script>
-      // Data for Chart 1
-      const labels = ['ENERGY', 'PROTEIN', 'CARBOHYDRATES', 'SUGAR', 'TOTAL FAT', 'SATURATED FAT', 'TRANS FAT', 'SODIUM'];
-      const sizes = [70.5, 7, 54.7, 6, 33, 13, 0.1, 0.067];
-      const data = {
-        labels: labels,
-        datasets: [{
-          data: sizes,
-          backgroundColor: [
-            '#E64C65',
-            '#11A8AB',
-            '#4FC4F6',
-            '#FFD700',
-            '#FF6347',
-            '#8A2BE2',
-            '#32CD32',
-            '#808080'
-          ]
-        }]
+      // Data 1
+      const data1 = {
+        energy: 544,
+        protein: 7,
+        carbohydrates: 54.7,
+        sugar: 6,
+        totalFat: 33,
+        saturatedFat: 13,
+        transFat: 0.1,
+        sodium: 676,
       };
-      const options = {
-        cutoutPercentage: 70,
-        responsive: true,
-        maintainAspectRatio: false
+  
+      // Data 2
+      const data2 = {
+        energy: 744,
+        protein: 10,
+        carbohydrates: 84.7,
+        sugar: 10,
+        totalFat: 37,
+        saturatedFat: 17,
+        transFat: 1.5,
+        sodium: 976,
       };
-      const ctx = document.getElementById('donutChart').getContext('2d');
-      new Chart(ctx, { type: 'doughnut', data: data, options: options });
+  
+      // Labels for the chart
+      const labels = Object.keys(data1);
+  
+      // Data for the multiple line graph
+      const lineChartData = {
+        labels,
+        datasets: [
+          {
+            label: 'Data 1',
+            data: Object.values(data1),
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 2,
+            fill: false,
+          },
+          {
+            label: 'Data 2',
+            data: Object.values(data2),
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 2,
+            fill: false,
+          },
+        ],
+      };
+  
+      // Data for the bar chart
+      const barChartData = {
+        labels,
+        datasets: [
+          {
+            label: 'Data 1',
+            data: Object.values(data1),
+            backgroundColor: 'rgba(75, 192, 192, 0.5)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1,
+          },
+          {
+            label: 'Data 2',
+            data: Object.values(data2),
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1,
+          },
+        ],
+      };
+  
+      // Creating multiple line chart
+      const lineChartCtx = document.getElementById('lineChart').getContext('2d');
+      new Chart(lineChartCtx, {
+        type: 'line',
+        data: lineChartData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
+  
+      // Creating bar chart
+      const barChartCtx = document.getElementById('barChart').getContext('2d');
+      new Chart(barChartCtx, {
+        type: 'bar',
+        data: barChartData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true,
+            },
+          },
+        },
+      });
     </script>
+
 </body>
 
 </html>

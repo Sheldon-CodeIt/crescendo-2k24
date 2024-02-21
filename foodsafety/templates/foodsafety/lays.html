@@ -1,55 +1,16 @@
-{% comment %} <!DOCTYPE html>
-{% load static %}
-
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FoodSafety</title>
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}">
-</head>
-<body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <h1>Navbar</h1>
-        <ul class="navbar-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="{% url 'products' %}">Products</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-        <div>
-            {% if request.user.is_authenticated %}
-                <h3>{{ request.user }}</h3>
-                <a href="{% url 'logout' %}">Logout</a>
-            {% else %}
-                <a href="{% url 'login' %}">Login</a>
-            {% endif %}
-        </div>
-    </div>
-
-    {% block content %}
-    
-    
-    {% endblock content %}
-    
-</body>
-</html> {% endcomment %}
-
-
 <!DOCTYPE html>
-
 {% load static %}
-
 <html lang="zxx">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="Shiva's | Gym ">
+    <meta name="description" content="Gym Template">
     <meta name="keywords" content="Gym, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>home</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Muli:300,400,500,600,700,800,900&display=swap" rel="stylesheet">
@@ -64,77 +25,14 @@
     <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
-    <style>.video-container {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        overflow: hidden;
-        z-index: -1;
-      }
-      video {
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-      }
-      .content {
-        z-index: 1;
-        position: relative;
-        padding: 20px;
-        color: white;
-        text-align: center;
-      }</style>
 </head>
- 
+
 <body>
     <!-- Page Preloder -->
     <div id="preloder">
-        <div class="loader"> </div>
+        <div class="loader"></div>
     </div>
-    <video autoplay loop muted>
-        <source src="{% static 'home.mp4' %}" type="video/mp4">
-        <!-- Add more <source> elements for other formats (WebM, Ogg) -->
-        Your browser does not support the video tag.
-      </video>
-      <section class="breadcrumb-section set-bg" data-setbg="./bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <div class="breadcrumb-text">
-                        <br>
-                        <br>
-                        <br>
-                        <br>
-                        <h2>Nutri<span style="color:orangered">Wise</span></h2>
-                        <div class="bt-option">
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-       
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
-      <br>
+
     <!-- Offcanvas Menu Section Begin -->
     <div class="offcanvas-menu-overlay"></div>
     <div class="offcanvas-menu-wrapper">
@@ -169,7 +67,7 @@
             <div class="row">
                 <div class="col-lg-3">
                     <div class="logo">
-                        <a href="./index.html">
+                        <a href="../index.html">
                             <img src="{% static 'images/logo.png' %}" alt="" height="200">
                         </a>
                     </div>
@@ -206,10 +104,89 @@
     </header>
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
-   
-    <!-- Hero Section End -->
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" data-setbg="{% static 'images/login.jpg' %}">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb-text">
+                        <h2>Lays Classic'Salted</h2>
+                        <div class="bt-option">
+                            <a href="../index.html">Home</a>
+                            
+                            <span>SearchProduct</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
 
+    <!-- Contact Section Begin -->
+    <section class="contact-section spad">
+        <div class="container">
+            <div class="row">
+                < class="col-lg-6">
+                    <!-- CODE HERE -->
+
+                   
+                      <!-- Content 1 -->
+                      <div id="content">
+                        <div class="donut-chart-container">
+                          <canvas id="donutChart"></canvas>
+                        </div>
+                      </div>
+                <div class="col-lg-6">
+                    <div class="section-title contact-title">
+                        <span>Lay's Classic' Salted</span>
+                        <h2>Admin dashboard</h2>
+                    </div>
+                    <div class="contact-widget">
+                        <div class="cw-text">
+                            <i class="fa fa-indent"></i>
+                            <p>INGREDIENTS<br/> Potatoes, Vegetable Oil (Sunflower, Corn, and/or Canola Oil), Salt</p>
+                        </div>
+                    <div class="contact-widget">
+                        <div class="cw-text">
+                            <i class="fa fa-indent"></i>
+                            <p>ADDITIVES<br/> Antioxidants (Tocopherols, Ascorbic Acid, Rosemary Extract), Acidity Regulator (Citric Acid)</p>
+                        </div>
+                    <div class="contact-widget">
+                        <div class="cw-text">
+                            <i class="fa fa-indent"></i>
+                            <p>FOOD COLOURING<br/>  None</p>
+                        </div>
+                    <div class="contact-widget">
+                        <div class="cw-text">
+                            <i class="fa fa-indent"></i>
+                            <p>RECOMMENDED CONSUMPTION<br/> 1 - 2 servings (1 oz) per day</p>
+                        </div>
+                    <div class="contact-widget">
+                        <div class="cw-text">
+                            <i class="fa fa-indent"></i>
+                            <p>MIN-AGE FOR CONSUMPTION<br/> 3 years</p>
+                        </div>
+                        
+                    </div>
+                    <div class="contact-widget">
+                        <div class="cw-text">
+                            <img src="{% static 'images/D.png' %}" alt="" style="width: 100px; height: 50px;">
+                            <p>Poor Nutrition Quality</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+   
+
+
+    <!-- Footer Section Begin -->
     <section class="footer-section">
         <div class="container">
             <div class="row">
@@ -288,6 +265,7 @@
     </section>
     <!-- Footer Section End -->
 
+
     <!-- Search model Begin -->
     <div class="search-model">
         <div class="h-100 d-flex align-items-center justify-content-center">
@@ -299,19 +277,45 @@
     </div>
     <!-- Search model end -->
 
-    <!-- Js Plugins -->
-    <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
-    <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
-    <script src="{% static 'js/jquery.barfiller.js' %}"></script>
-    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
-    <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+     <!-- Js Plugins -->
+     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.min.js' %}"></script>
+     <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+     <script src="{% static 'js/masonry.pkgd.min.js' %}"></script>
+     <script src="{% static 'js/jquery.barfiller.js' %}"></script>
+     <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+ 
+     <script src="{% static 'js/main.js' %}"></script> 
 
-    <script src="{% static 'js/main.js' %}"></script> 
-
-
-
+    <script>
+      // Data for Chart 1
+      const labels = ['ENERGY', 'PROTEIN', 'CARBOHYDRATES', 'SUGAR', 'TOTAL FAT', 'SATURATED FAT', 'TRANS FAT', 'SODIUM'];
+      const sizes = [70.5, 7, 54.7, 6, 33, 13, 0.1, 0.067];
+      const data = {
+        labels: labels,
+        datasets: [{
+          data: sizes,
+          backgroundColor: [
+            '#E64C65',
+            '#11A8AB',
+            '#4FC4F6',
+            '#FFD700',
+            '#FF6347',
+            '#8A2BE2',
+            '#32CD32',
+            '#808080'
+          ]
+        }]
+      };
+      const options = {
+        cutoutPercentage: 70,
+        responsive: true,
+        maintainAspectRatio: false
+      };
+      const ctx = document.getElementById('donutChart').getContext('2d');
+      new Chart(ctx, { type: 'doughnut', data: data, options: options });
+    </script>
 </body>
 
 </html>
