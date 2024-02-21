@@ -1,7 +1,41 @@
 {% extends "foodsafety/main.html" %}
 
 {% block content %}
-
 <h1>Product Feed</h1>
+
+<form method="GET" action="">
+    <input type="text" name="search-area" value="{{ search_input }}">
+    <input type="submit" value="Search">
+</form>
+
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Image</th>
+      <th>Title</th>
+      <th>Brand</th>
+      <th>Score</th>
+      <th>Action</th>
+    <tr/>
+    
+  </thead>
+  <tbody>
+    {% for product in products %}
+    <tr>
+      <td><img src="{{ product.image }}" alt="{{ product.title }}" width="100"></td>
+      <td>{{ product.title }}</td>
+      <td>{{ product.brand }}</td>
+      <td>{{ product.score }}</td>
+      <td><a href="{% url 'product' product.id %}" class="btn btn-primary">Show Details</a></td>
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="5">No products found.</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 
 {% endblock content %}

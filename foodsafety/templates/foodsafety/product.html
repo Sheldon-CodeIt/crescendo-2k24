@@ -1,7 +1,20 @@
 {% extends "foodsafety/main.html" %}
 
+
 {% block content %}
-
-<h2>Product Detail</h2>
-
-{% endblock content %}
+<h1>{{ product.name }}</h1>
+<p>{{ product.description }}</p>
+<ul>
+    <li><strong>Barcode:</strong> {{ product.barcode }}</li>
+    <li><strong>Common Name:</strong> {{ product.common_name }}</li>
+    <li><strong>Quantity:</strong> {{ product.quantity }}</li>
+    <li><strong>Packaging:</strong> {{ product.packaging }}</li>
+    <li><strong>Brands:</strong> {{ product.brands }}</li>
+    <li><strong>Categories:</strong> {{ product.categories }}</li>
+    <li><strong>Labels/Certifications:</strong> {{ product.labels }}</li>
+    <li><strong>Product Link:</strong> <a href="{{ product.product_link }}" target="_blank">{{ product.product_link }}</a></li>
+    <li><strong>Stores:</strong> {{ product.stores }}</li>
+    <li><strong>Countries where sold:</strong> {{ product.countries_sold }}</li>
+    <!-- Add more details as needed -->
+</ul>
+{% endblock %}

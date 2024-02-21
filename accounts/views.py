@@ -9,9 +9,7 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login
-
-
-
+from django.contrib.auth.decorators import login_required
 
 
 class CustomLoginView(LoginView):
@@ -20,13 +18,21 @@ class CustomLoginView(LoginView):
     redirect_authenticated_user = True
 
     def get_success_url(self):
-        return reverse_lazy('')
+        if 'next' in self.request.POST:
+            # If 'next' parameter exists in POST data, redirect to it
+            return self.request.POST.get('next')
+        else:
+            # If 'next' parameter doesn't exist, redirect to the product details page
+            # You need to modify this logic based on how your URLs are structured
+            # For demonstration purposes, I'm assuming there's a 'product' URL pattern
+            return reverse_lazy('product', kwargs={'pk': self.request.user.id})
+
     
 class RegisterPage(FormView):
     template_name = 'accounts/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
-    success_url = reverse_lazy('')
+    success_url = reverse_lazy('home')
 
     def form_valid(self, form):
         user = form.save()
@@ -36,8 +42,10 @@ class RegisterPage(FormView):
     
     def get(self, *args, **kwargs):
         if self.request.user.is_authenticated:
-            return redirect('')
+            return redirect('home')
         return super(RegisterPage, self).get(*args, **kwargs)
+    
+
 
 class CustomLogoutView(LogoutView):
     def get_success_url(self):
@@ -46,7 +54,7 @@ class CustomLogoutView(LogoutView):
 
 def logout(request):
     auth.logout(request)
-    return redirect('')
+    return redirect('home')
     
 
 # class TaskList(LoginRequiredMixin, ListView):
